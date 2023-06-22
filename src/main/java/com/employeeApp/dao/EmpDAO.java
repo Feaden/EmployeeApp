@@ -7,4 +7,5 @@ import java.util.List;
 public interface EmpDAO {
     public List<Employee> getAllEmp();
     public void saveEmp(Employee employee);
+    public Employee getEmp(int id);
 }

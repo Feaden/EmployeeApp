@@ -27,7 +27,12 @@ public class EmpDAOImpl implements EmpDAO{
     @Override
     public void saveEmp(Employee employee) {
         Session session = sessionFactory.getCurrentSession();
+        session.merge(employee);
+    }
 
-        session.persist(employee);
+    @Override
+    public Employee getEmp(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Employee.class, id);
     }
 }
