@@ -18,7 +18,6 @@ public class EmpDAOImpl implements EmpDAO{
         this.sessionFactory = sessionFactory;
     }
     @Override
-    @Transactional
     public List<Employee> getAllEmp() {
         Session session = sessionFactory.getCurrentSession();
         List<Employee> employees = session.createQuery("from Employee", Employee.class).getResultList();

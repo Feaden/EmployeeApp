@@ -2,6 +2,7 @@ package com.employeeApp.controller;
 
 import com.employeeApp.dao.EmpDAO;
 import com.employeeApp.entity.Employee;
+import com.employeeApp.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +13,14 @@ import java.util.List;
 @Controller
 public class DefaultPageController {
 
-    private EmpDAO empDAO;
+    private EmpService empService;
     @Autowired
-    public DefaultPageController(EmpDAO empDAO) {
-        this.empDAO = empDAO;
+    public DefaultPageController(EmpService empService) {
+        this.empService = empService;
     }
     @RequestMapping("/")
     public String showAllEmployees(Model model) {
-        List<Employee> allEmps = empDAO.getAllEmp();
+        List<Employee> allEmps = empService.getAllEmp();
         model.addAttribute("allEmps", allEmps);
         return "allEmployees";
     }
