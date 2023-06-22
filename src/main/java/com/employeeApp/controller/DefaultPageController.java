@@ -36,4 +36,9 @@ public class DefaultPageController {
         model.addAttribute("employee", employee);
         return "employee-info";
     }
+    @RequestMapping("/deleteInfo")
+    public String deleteEmp(@RequestParam("empId") int id) {
+        empService.deleteEmp(id);
+        return "redirect:/";
+    }
 }

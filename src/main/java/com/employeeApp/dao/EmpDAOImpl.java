@@ -2,9 +2,9 @@ package com.employeeApp.dao;
 
 import com.employeeApp.entity.Employee;
 
-import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -34,5 +34,13 @@ public class EmpDAOImpl implements EmpDAO{
     public Employee getEmp(int id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Employee.class, id);
+    }
+
+    @Override
+    public void deleteEmp(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Employee> query = session.createQuery("delete from Employee " + "where id =:empId");
+        query.setParameter("empId", id);
+        query.executeUpdate();
     }
 }

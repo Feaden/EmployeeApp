@@ -34,4 +34,10 @@ public class EmpServiceImpl implements EmpService {
         return empDAO.getEmp(id);
     }
 
+    @Override
+    @Transactional
+    public void deleteEmp(int id) {
+        empDAO.deleteEmp(id);
+    }
+
 }
