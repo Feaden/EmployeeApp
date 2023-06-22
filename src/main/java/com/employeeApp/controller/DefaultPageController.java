@@ -24,5 +24,11 @@ public class DefaultPageController {
         model.addAttribute("allEmps", allEmps);
         return "allEmployees";
     }
+    @RequestMapping("/addNewEmp")
+    public String addNewEmployee(Model model) {
+        Employee employee = new Employee();
+        model.addAttribute("employee", employee);
+        return "employee-info";
+    }
 
 }

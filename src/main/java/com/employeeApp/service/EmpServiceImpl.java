@@ -21,4 +21,10 @@ public class EmpServiceImpl implements EmpService {
     public List<Employee> getAllEmp() {
         return empDAO.getAllEmp();
     }
+
+    @Override
+    @Transactional
+    public void saveEmp(Employee employee) {
+        empDAO.saveEmp(employee);
+    }
 }

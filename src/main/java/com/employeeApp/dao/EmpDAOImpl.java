@@ -23,4 +23,11 @@ public class EmpDAOImpl implements EmpDAO{
         List<Employee> employees = session.createQuery("from Employee", Employee.class).getResultList();
         return employees;
     }
+
+    @Override
+    public void saveEmp(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+
+        session.persist(employee);
+    }
 }
